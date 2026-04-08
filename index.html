@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>有限会社友好設備 | 埼玉県川口市の土木・建設会社</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --primary:   #1A4E8C;
+      --primary-d: #0d3566;
+      --accent:    #E8A020;
+      --accent-d:  #c47f0d;
+      --teal:      #3A9E8A;
+      --light-bg:  #F4F8FD;
+      --text:      #2D2D2D;
+      --text-sub:  #5a5a5a;
+      --border:    #D0DCF0;
+      --white:     #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Sans JP', 'Yu Gothic', 'ヒラギノ角ゴ Pro', sans-serif;
+      color: var(--text);
+      line-height: 1.7;
+      font-size: 15px;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: var(--white);
+      border-bottom: 3px solid var(--primary);
+      z-index: 1000;
+      box-shadow: 0 2px 12px rgba(0,0,0,.12);
+    }
+    .header-inner {
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px;
+      height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo-wrap { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .logo-icon {
+      width: 42px; height: 42px;
+      background: var(--primary);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; color: var(--white); font-weight: 900;
+      flex-shrink: 0;
+    }
+    .logo-text { line-height: 1.2; }
+    .logo-text .en { font-size: 9px; color: var(--primary); letter-spacing: .12em; font-weight: 700; }
+    .logo-text .ja { font-size: 16px; color: var(--text); font-weight: 700; }
+
+    nav { display: flex; align-items: center; gap: 24px; }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 13px;
+      font-weight: 500;
+      padding: 4px 0;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    nav a:hover { color: var(--primary); border-color: var(--primary); }
+
+    .header-cta {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+    .tel-wrap { text-align: right; line-height: 1.2; }
+    .tel-wrap .label { font-size: 10px; color: var(--text-sub); }
+    .tel-wrap a { font-size: 20px; font-weight: 900; color: var(--primary); text-decoration: none; letter-spacing: .04em; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      max-height: 820px;
+      background: #0d2f5c;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      padding-top: 72px;
+    }
+    /* video background */
+    .hero-video {
+      position: absolute;
+      inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    /* dark overlay on video */
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(10,30,60,.75) 0%, rgba(26,78,140,.55) 60%, rgba(42,111,160,.45) 100%);
+      z-index: 1;
+    }
+    /* diagonal accent bar */
+    .hero-accent {
+      position: absolute;
+      top: 0; right: 0;
+      width: 38%;
+      height: 100%;
+      background: rgba(255,255,255,.03);
+      clip-path: polygon(18% 0, 100% 0, 100% 100%, 0% 100%);
+      z-index: 2;
+    }
+    .hero-stripe {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 6px;
+      background: repeating-linear-gradient(90deg, var(--accent) 0, var(--accent) 40px, transparent 40px, transparent 60px);
+      opacity: .7;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 3;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 40px;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--accent);
+      color: var(--white);
+      font-size: 12px;
+      font-weight: 700;
+      padding: 5px 14px;
+      border-radius: 2px;
+      letter-spacing: .1em;
+      margin-bottom: 22px;
+    }
+    .hero-tag::before {
+      content: '';
+      display: block;
+      width: 6px; height: 6px;
+      background: var(--white);
+      border-radius: 50%;
+    }
+    .hero h1 {
+      font-size: clamp(28px, 4.5vw, 54px);
+      font-weight: 900;
+      color: var(--white);
+      line-height: 1.25;
+      margin-bottom: 20px;
+      letter-spacing: -.01em;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--accent);
+    }
+    .hero-sub {
+      font-size: clamp(14px, 1.8vw, 18px);
+      color: rgba(255,255,255,.80);
+      max-width: 560px;
+      margin-bottom: 36px;
+      line-height: 1.8;
+    }
+    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 14px 32px;
+      border-radius: 4px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all .2s;
+      letter-spacing: .04em;
+    }
+    .btn-primary {
+      background: var(--accent);
+      color: var(--white);
+      box-shadow: 0 4px 18px rgba(232,160,32,.4);
+    }
+    .btn-primary:hover { background: var(--accent-d); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent;
+      color: var(--white);
+      border: 2px solid rgba(255,255,255,.6);
+    }
+    .btn-outline:hover { background: rgba(255,255,255,.1); border-color: var(--white); }
+
+    .hero-stats {
+      position: absolute;
+      right: 40px;
+      bottom: 60px;
+      z-index: 3;
+      display: flex;
+      gap: 28px;
+    }
+    .stat-card {
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 10px;
+      padding: 18px 24px;
+      text-align: center;
+      color: var(--white);
+    }
+    .stat-num { font-size: 36px; font-weight: 900; line-height: 1; color: var(--accent); }
+    .stat-unit { font-size: 14px; font-weight: 700; }
+    .stat-label { font-size: 11px; color: rgba(255,255,255,.7); margin-top: 4px; }
+
+    /* ── SECTION BASE ── */
+    section { padding: 80px 20px; }
+    .container { max-width: 1060px; margin: 0 auto; }
+    .section-head { text-align: center; margin-bottom: 52px; }
+    .section-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      padding: 4px 14px;
+      border-radius: 30px;
+      margin-bottom: 12px;
+    }
+    .section-head h2 {
+      font-size: clamp(22px, 3vw, 34px);
+      font-weight: 900;
+      line-height: 1.3;
+      color: var(--text);
+    }
+    .section-head h2 .accent { color: var(--primary); }
+    .section-head p {
+      color: var(--text-sub);
+      margin-top: 12px;
+      font-size: 15px;
+    }
+
+    /* ── APPEAL / STRENGTHS ── */
+    .appeal { background: var(--light-bg); }
+    .appeal-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .appeal-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 36px 28px;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(26,78,140,.06);
+      transition: transform .25s, box-shadow .25s;
+      position: relative;
+      overflow: hidden;
+    }
+    .appeal-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: var(--primary);
+    }
+    .appeal-card:nth-child(2)::before { background: var(--accent); }
+    .appeal-card:nth-child(3)::before { background: var(--teal); }
+    .appeal-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(26,78,140,.12); }
+    .appeal-icon {
+      font-size: 40px;
+      margin-bottom: 18px;
+      display: block;
+    }
+    .appeal-num {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: .12em;
+      margin-bottom: 8px;
+    }
+    .appeal-card h3 {
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 12px;
+      line-height: 1.4;
+    }
+    .appeal-card p { font-size: 14px; color: var(--text-sub); line-height: 1.8; }
+
+    /* ── SERVICES ── */
+    .services { background: var(--white); }
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 16px;
+    }
+    .service-item {
+      background: var(--light-bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 28px 16px;
+      text-align: center;
+      transition: all .2s;
+    }
+    .service-item:hover {
+      background: var(--primary);
+      border-color: var(--primary);
+    }
+    .service-item:hover .svc-icon,
+    .service-item:hover .svc-name { color: var(--white); }
+    .svc-icon { font-size: 36px; display: block; margin-bottom: 14px; }
+    .svc-name { font-size: 13px; font-weight: 700; line-height: 1.5; color: var(--text); }
+
+    /* ── MESSAGE ── */
+    .message { background: var(--primary); color: var(--white); }
+    .message-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+    .message-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--accent);
+      letter-spacing: .2em;
+      margin-bottom: 12px;
+    }
+    .message-content h2 {
+      font-size: clamp(20px, 2.5vw, 30px);
+      font-weight: 900;
+      line-height: 1.4;
+      margin-bottom: 24px;
+    }
+    .message-content p {
+      font-size: 14px;
+      line-height: 2;
+      color: rgba(255,255,255,.85);
+      margin-bottom: 16px;
+    }
+    .message-person {
+      background: rgba(255,255,255,.08);
+      border: 1px solid rgba(255,255,255,.18);
+      border-radius: 12px;
+      padding: 32px;
+    }
+    .person-avatar {
+      width: 80px; height: 80px;
+      background: var(--accent);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      margin: 0 auto 16px;
+    }
+    .person-info { text-align: center; margin-bottom: 20px; }
+    .person-name { font-size: 20px; font-weight: 900; }
+    .person-role { font-size: 13px; color: rgba(255,255,255,.7); margin-top: 4px; }
+    .person-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; margin-top: 16px; }
+    .person-tag {
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.22);
+      border-radius: 20px;
+      padding: 4px 12px;
+      font-size: 12px;
+      color: rgba(255,255,255,.85);
+    }
+
+    /* ── VOICE / HIGHLIGHTS ── */
+    .highlights { background: var(--light-bg); }
+    .highlights-list { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+    .highlight-item {
+      background: var(--white);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      padding: 24px 28px;
+      display: flex;
+      gap: 18px;
+      align-items: flex-start;
+      box-shadow: 0 2px 12px rgba(26,78,140,.05);
+    }
+    .hi-icon {
+      width: 48px; height: 48px;
+      background: var(--primary);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+      color: var(--white);
+    }
+    .hi-text h4 { font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+    .hi-text p { font-size: 13px; color: var(--text-sub); line-height: 1.7; }
+
+    /* ── COMPANY INFO ── */
+    .company { background: var(--white); }
+    .company-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .info-table { width: 100%; border-collapse: collapse; }
+    .info-table tr { border-bottom: 1px solid var(--border); }
+    .info-table th {
+      padding: 14px 0;
+      text-align: left;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      width: 30%;
+      vertical-align: top;
+    }
+    .info-table td {
+      padding: 14px 0 14px 20px;
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.8;
+      vertical-align: top;
+    }
+    .map-wrap {
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      box-shadow: 0 4px 20px rgba(26,78,140,.08);
+    }
+    .map-placeholder {
+      width: 100%;
+      height: 360px;
+      background: linear-gradient(135deg, #E8F0F9 0%, #D0DCF0 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-weight: 700;
+    }
+    .map-placeholder .pin { font-size: 48px; margin-bottom: 12px; }
+    .map-address { text-align: center; font-size: 13px; margin-top: 8px; line-height: 1.6; color: var(--text-sub); }
+
+    /* ── CONTACT ── */
+    .contact { background: linear-gradient(135deg, #0d2f5c 0%, #1A4E8C 100%); color: var(--white); text-align: center; }
+    .contact h2 { font-size: clamp(22px, 3vw, 36px); font-weight: 900; margin-bottom: 12px; }
+    .contact p { color: rgba(255,255,255,.80); margin-bottom: 44px; font-size: 16px; }
+    .contact-cards {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: rgba(255,255,255,.10);
+      border: 1px solid rgba(255,255,255,.20);
+      border-radius: 12px;
+      padding: 32px 40px;
+      min-width: 240px;
+      transition: background .2s;
+      text-decoration: none;
+      color: var(--white);
+    }
+    .contact-card:hover { background: rgba(255,255,255,.18); }
+    .cc-icon { font-size: 36px; margin-bottom: 10px; }
+    .cc-label { font-size: 12px; color: rgba(255,255,255,.65); margin-bottom: 6px; letter-spacing: .1em; }
+    .cc-value { font-size: 22px; font-weight: 900; letter-spacing: .04em; }
+    .cc-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 4px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a1f3f;
+      color: rgba(255,255,255,.55);
+      padding: 32px 20px;
+      text-align: center;
+      font-size: 12px;
+    }
+    footer a { color: rgba(255,255,255,.55); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    .footer-inner { max-width: 1060px; margin: 0 auto; }
+    .footer-logo { color: rgba(255,255,255,.85); font-size: 16px; font-weight: 700; margin-bottom: 12px; }
+
+    /* ── SCROLL FADE ── */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+    .fade-in.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .appeal-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: repeat(3, 1fr); }
+      .message-wrap, .company-wrap { grid-template-columns: 1fr; gap: 36px; }
+      .highlights-list { grid-template-columns: 1fr; }
+      .hero-stats { display: none; }
+      nav { display: none; }
+    }
+    @media (max-width: 600px) {
+      .services-grid { grid-template-columns: repeat(2, 1fr); }
+      .contact-cards { flex-direction: column; align-items: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- =============== HEADER =============== -->
+  <header>
+    <div class="header-inner">
+      <a href="#" class="logo-wrap">
+        <div class="logo-icon">友</div>
+        <div class="logo-text">
+          <div class="en">YUKO SETSUBI CO., LTD.</div>
+          <div class="ja">有限会社友好設備</div>
+        </div>
+      </a>
+      <nav>
+        <a href="#appeal">選ばれる理由</a>
+        <a href="#services">事業内容</a>
+        <a href="#message">代表メッセージ</a>
+        <a href="#company">会社情報</a>
+        <a href="#contact">お問い合わせ</a>
+      </nav>
+      <div class="header-cta">
+        <div class="tel-wrap">
+          <div class="label">お気軽にご相談ください</div>
+          <a href="tel:0482870666">048-287-0666</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- =============== HERO =============== -->
+  <section class="hero">
+    <video class="hero-video" autoplay muted loop playsinline>
+      <source src="/Users/tsukashiikeshita/Desktop/株式会社LIGO/動画制作/友好設備/サイトトップ動画.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+    <div class="hero-accent"></div>
+    <div class="hero-stripe"></div>
+    <div class="hero-inner">
+      <div class="hero-tag">埼玉県川口市の建設・土木会社</div>
+      <h1>
+        地域に根ざして<em>40年</em>。<br>
+        確かな技術と<br>
+        チームワークで<br>
+        街をつくる。
+      </h1>
+      <p class="hero-sub">
+        とび・土工・舗装・管工事・水道施設工事まで。<br>
+        埼玉県川口市から地域のインフラを支え続けてきた<br>
+        <strong style="color:#fff;">有限会社友好設備</strong>にお任せください。
+      </p>
+      <div class="hero-btns">
+        <a href="#contact" class="btn btn-primary">無料でご相談する</a>
+        <a href="#services" class="btn btn-outline">事業内容を見る</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card">
+        <div class="stat-num">40<span class="stat-unit" style="font-size:18px;">年+</span></div>
+        <div class="stat-label">最長勤続年数</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">20<span class="stat-unit" style="font-size:18px;">名</span></div>
+        <div class="stat-label">チーム総勢</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">5<span class="stat-unit" style="font-size:18px;">種</span></div>
+        <div class="stat-label">対応工事業種</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== APPEAL =============== -->
+  <section class="appeal" id="appeal">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="section-label">WHY CHOOSE US</span>
+        <h2>友好設備が<span class="accent">選ばれる</span>3つの理由</h2>
+        <p>長年にわたり川口市・周辺エリアのインフラ工事を担ってきた実績と信頼があります。</p>
+      </div>
+      <div class="appeal-grid">
+        <div class="appeal-card fade-in">
+          <span class="appeal-icon">🤝</span>
+          <div class="appeal-num">REASON 01</div>
+          <h3>和気あいあいとした<br>チームワーク</h3>
+          <p>20名のメンバーの半数以上が勤続10年以上。仲間の紹介で集まったスタッフが多く、冗談を言い合える温かい職場環境が自慢です。事務所スタッフも含め、賑やか＆和やかな雰囲気が根付いています。</p>
+        </div>
+        <div class="appeal-card fade-in">
+          <span class="appeal-icon">📜</span>
+          <div class="appeal-num">REASON 02</div>
+          <h3>資格取得支援で<br>キャリアアップ</h3>
+          <p>入社後に土木施工管理技士・管工事施工管理技士の資格を取得したメンバーが多数。会社が資格取得を全力でサポートします。技術を磨いてステップアップしたい方を歓迎します。</p>
+        </div>
+        <div class="appeal-card fade-in">
+          <span class="appeal-icon">🏛️</span>
+          <div class="appeal-num">REASON 03</div>
+          <h3>市役所から信頼される<br>施工品質</h3>
+          <p>川口市役所からの受注実績を積み重ね、「友好設備さんなら任せられる」と言っていただけることを目標に、品質と誠実さで仕事に取り組んでいます。地域のインフラを支える責任と誇りを持って施工します。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== SERVICES =============== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="section-label">SERVICES</span>
+        <h2>対応している<span class="accent">5つの工事業種</span></h2>
+        <p>土木・建設に関わる幅広い工事に対応しています。</p>
+      </div>
+      <div class="services-grid fade-in">
+        <div class="service-item">
+          <span class="svc-icon">⛏️</span>
+          <span class="svc-name">とび・土工<br>工事業</span>
+        </div>
+        <div class="service-item">
+          <span class="svc-icon">🚧</span>
+          <span class="svc-name">土木<br>工事業</span>
+        </div>
+        <div class="service-item">
+          <span class="svc-icon">🛣️</span>
+          <span class="svc-name">舗装<br>工事業</span>
+        </div>
+        <div class="service-item">
+          <span class="svc-icon">🔧</span>
+          <span class="svc-name">管<br>工事業</span>
+        </div>
+        <div class="service-item">
+          <span class="svc-icon">💧</span>
+          <span class="svc-name">水道施設<br>工事業</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== MESSAGE =============== -->
+  <section class="message" id="message">
+    <div class="container">
+      <div class="message-wrap">
+        <div class="message-content fade-in">
+          <div class="message-label">STAFF VOICE / 工事部長より</div>
+          <h2>「どんな人に会えるか、<br>ワクワクしてます！」</h2>
+          <p>
+            一番長いメンバーは勤続40年、一番短い人でも4年。今まで仲間の紹介でチームを作ってきたので、今回が初めての求人募集になります。
+          </p>
+          <p>
+            うちの一番の自慢は、やっぱり仲の良さです。冗談を言い合えるくらいの雰囲気で、みんながのびのび働けています。20名いるメンバーの半分以上が勤続10年以上というのが、その証拠だと思っています。
+          </p>
+          <p>
+            社長が自分で育てた野菜や果物を大量に持ってきてくれるのも、うちだけの楽しみ（笑）。たまねぎ・キュウリ・トマト・じゃがいもなど、季節の野菜には困りません！
+          </p>
+          <p>
+            資格取得支援もしっかり整っているので、「色んな資格を取ってみたい」という前向きな方も大歓迎です。一緒にもっと信頼される会社を作っていきましょう！
+          </p>
+        </div>
+        <div class="message-person fade-in">
+          <div class="person-avatar">👷</div>
+          <div class="person-info">
+            <div class="person-name">竹田 茂</div>
+            <div class="person-role">工事部長 / 有限会社友好設備</div>
+          </div>
+          <div class="person-tags">
+            <span class="person-tag">年齢 46歳</span>
+            <span class="person-tag">3人の娘のパパ</span>
+            <span class="person-tag">社会人サッカー</span>
+            <span class="person-tag">明るい職場づくり</span>
+            <span class="person-tag">資格取得支援</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== HIGHLIGHTS =============== -->
+  <section class="highlights">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="section-label">HIGHLIGHTS</span>
+        <h2>友好設備で働く<span class="accent">魅力</span></h2>
+      </div>
+      <div class="highlights-list">
+        <div class="highlight-item fade-in">
+          <div class="hi-icon">🕐</div>
+          <div class="hi-text">
+            <h4>最長勤続40年の安定した職場</h4>
+            <p>長く勤め続けられる環境が整っています。20名中10名以上が勤続10年以上という実績が、働きやすさを証明しています。</p>
+          </div>
+        </div>
+        <div class="highlight-item fade-in">
+          <div class="hi-icon">📋</div>
+          <div class="hi-text">
+            <h4>資格取得を会社が全力サポート</h4>
+            <p>土木施工管理技士・管工事施工管理技士など、入社後に資格を取得したメンバーが多数在籍。キャリアアップを応援します。</p>
+          </div>
+        </div>
+        <div class="highlight-item fade-in">
+          <div class="hi-icon">😄</div>
+          <div class="hi-text">
+            <h4>明るくアットホームな職場環境</h4>
+            <p>事務所の女性スタッフも含め、賑やかで和やかな雰囲気。冗談も言い合える仲の良いチームで毎日働けます。</p>
+          </div>
+        </div>
+        <div class="highlight-item fade-in">
+          <div class="hi-icon">🥕</div>
+          <div class="hi-text">
+            <h4>社長から新鮮野菜のプレゼント（笑）</h4>
+            <p>社長が自ら育てたたまねぎ・キュウリ・トマト・じゃがいもなどを段ボールで持ってきてくれます。野菜には困りません！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== COMPANY INFO =============== -->
+  <section class="company" id="company">
+    <div class="container">
+      <div class="section-head fade-in">
+        <span class="section-label">COMPANY</span>
+        <h2>会社<span class="accent">概要</span></h2>
+      </div>
+      <div class="company-wrap">
+        <div class="fade-in">
+          <table class="info-table">
+            <tr>
+              <th>会社名</th>
+              <td>有限会社友好設備</td>
+            </tr>
+            <tr>
+              <th>代表者</th>
+              <td>竹田 茂</td>
+            </tr>
+            <tr>
+              <th>資本金</th>
+              <td>400万円</td>
+            </tr>
+            <tr>
+              <th>事業内容</th>
+              <td>
+                とび・土工工事業<br>
+                土木工事業<br>
+                舗装工事業<br>
+                管工事業<br>
+                水道施設工事業
+              </td>
+            </tr>
+            <tr>
+              <th>所在地</th>
+              <td>〒333-0834<br>埼玉県川口市安行領根岸１１６７</td>
+            </tr>
+            <tr>
+              <th>アクセス</th>
+              <td>JR「蕨駅」から車で約15分</td>
+            </tr>
+            <tr>
+              <th>電話番号</th>
+              <td><a href="tel:0482870666" style="color:var(--primary);font-weight:700;">048-287-0666</a></td>
+            </tr>
+            <tr>
+              <th>メール</th>
+              <td><a href="mailto:mitsunaritakeda0525@yahoo.co.jp" style="color:var(--primary);">mitsunaritakeda0525@yahoo.co.jp</a></td>
+            </tr>
+          </table>
+        </div>
+        <div class="map-wrap fade-in">
+          <div class="map-placeholder">
+            <div class="pin">📍</div>
+            <div style="font-size:15px;font-weight:700;">有限会社友好設備</div>
+            <div class="map-address">
+              〒333-0834<br>
+              埼玉県川口市安行領根岸１１６７<br>
+              <br>
+              JR「蕨駅」から車で約15分
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== CONTACT =============== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="fade-in">
+        <h2>まずはお気軽にご相談ください</h2>
+        <p>工事のご依頼・お見積りのご相談はお電話またはメールにてお受けしております。</p>
+        <div class="contact-cards">
+          <a href="tel:0482870666" class="contact-card">
+            <div class="cc-icon">📞</div>
+            <div class="cc-label">PHONE</div>
+            <div class="cc-value">048-287-0666</div>
+            <div class="cc-sub">平日 8:00〜17:00</div>
+          </a>
+          <a href="mailto:mitsunaritakeda0525@yahoo.co.jp" class="contact-card">
+            <div class="cc-icon">✉️</div>
+            <div class="cc-label">EMAIL</div>
+            <div class="cc-value" style="font-size:14px;letter-spacing:.01em;">mitsunaritakeda0525@<br>yahoo.co.jp</div>
+            <div class="cc-sub">24時間受付</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- =============== FOOTER =============== -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">有限会社友好設備</div>
+      <p>〒333-0834 埼玉県川口市安行領根岸１１６７　Tel: <a href="tel:0482870666">048-287-0666</a></p>
+      <p style="margin-top:10px;">&copy; 2025 有限会社友好設備. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // Smooth active nav highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('nav a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(sec => {
+        if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current ? 'var(--primary)' : '';
+        a.style.borderColor = a.getAttribute('href') === '#' + current ? 'var(--primary)' : 'transparent';
+      });
+    });
+  </script>
+</body>
+</html>
